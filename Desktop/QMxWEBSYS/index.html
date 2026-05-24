@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Tri J Sports Training Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <span class="brand-logo">⚡</span>
+    <span class="brand-name">Tri J Academy</span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <button class="nav-link active" data-section="home" onclick="navigateTo('home')">Home</button>
+    <button class="nav-link" data-section="hub" onclick="navigateTo('hub')">Sports Hub</button>
+    <button class="nav-link" data-section="coaches" onclick="navigateTo('coaches')">Coaches</button>
+    <button class="nav-link" data-section="awards" onclick="navigateTo('awards')">Awards</button>
+    <button class="nav-link" data-section="admin" onclick="navigateTo('admin')">Admin</button>
+    <button class="nav-link" data-section="portal" onclick="navigateTo('portal')">My Portal</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-header">
+    <span class="brand-name">Tri J</span>
+    <button class="drawer-close" id="drawerClose">✕</button>
+  </div>
+  <a href="#" class="drawer-link active" onclick="navigateTo('home');closeDrawer();return false">🏠 Home</a>
+  <a href="#" class="drawer-link" onclick="navigateTo('hub');closeDrawer();return false">🏟️ Sports Hub</a>
+  <a href="#" class="drawer-link" onclick="navigateTo('coaches');closeDrawer();return false">👤 Coaches</a>
+  <a href="#" class="drawer-link" onclick="navigateTo('awards');closeDrawer();return false">🏆 Awards</a>
+  <a href="#" class="drawer-link" onclick="navigateTo('admin');closeDrawer();return false">⚙️ Admin</a>
+  <a href="#" class="drawer-link" onclick="navigateTo('portal');closeDrawer();return false">🔐 My Portal</a>
+</div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- ==================== HOME ==================== -->
+<section class="section active" id="section-home">
+  <div class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape1"></div>
+      <div class="shape shape2"></div>
+      <div class="shape shape3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">WORLD-CLASS TRAINING</div>
+      <h1 class="hero-title">TRAIN LIKE<br/><span class="hero-accent">A CHAMPION</span></h1>
+      <p class="hero-sub">Elite coaches. 12 sports. Real results. Join thousands of athletes training smarter worldwide.</p>
+      <div class="hero-cta-group">
+        <button class="btn-primary" onclick="navigateTo('hub')">Explore Sports</button>
+        <button class="btn-ghost" onclick="navigateTo('coaches')">Meet Coaches</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Athletes</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">48</span><span class="stat-label">Countries</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Sports</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hex-grid">
+        <div class="hex" style="--d:0s">🥊</div><div class="hex" style="--d:.1s">⚽</div>
+        <div class="hex" style="--d:.2s">🏊</div><div class="hex" style="--d:.3s">🏋️</div>
+        <div class="hex" style="--d:.4s">🎾</div><div class="hex" style="--d:.5s">🏀</div>
+        <div class="hex" style="--d:.6s">🤸</div><div class="hex" style="--d:.7s">🏹</div>
+        <div class="hex" style="--d:.8s">🥋</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-strip">
+    <div class="feature-item"><span class="fi-icon">🌍</span><div><strong>Global Coaches</strong><p>Professionals from 48+ countries</p></div></div>
+    <div class="feature-item"><span class="fi-icon">📅</span><div><strong>Flexible Schedule</strong><p>Train at your own pace</p></div></div>
+    <div class="feature-item"><span class="fi-icon">🏆</span><div><strong>Proven Results</strong><p>94% athlete satisfaction rate</p></div></div>
+    <div class="feature-item"><span class="fi-icon">💳</span><div><strong>Secure Payments</strong><p>Easy checkout & digital receipts</p></div></div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">POPULAR <span class="accent">SPORTS</span></h2>
+      <p class="section-sub">Choose your discipline and start training today</p>
+    </div>
+    <div class="sports-grid" id="homesSportsGrid"></div>
+    <div class="center-btn"><button class="btn-primary" onclick="navigateTo('hub')">View All Sports →</button></div>
+  </div>
+
+  <div class="testimonials-block">
+    <div class="section-header">
+      <h2 class="section-title">ATHLETE <span class="accent">STORIES</span></h2>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <p>"Tri J transformed my boxing skills in just 8 weeks. My coach was incredible — technical, patient, and deeply motivating."</p>
+        <div class="t-author"><span class="t-avatar">🇵🇭</span><strong>Marco R.</strong><em>Boxing Trainee, Manila</em></div>
+        <div class="t-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"I signed up for swimming and got matched with an Olympic-level coach from Australia. World-class, structured sessions."</p>
+        <div class="t-author"><span class="t-avatar">🇧🇷</span><strong>Camila S.</strong><em>Swimming Trainee, São Paulo</em></div>
+        <div class="t-stars">★★★★★</div>
+      </div>
+      <div class="testimonial-card">
+        <p>"The portal made everything easy — booking, payment, receipts all in one place. My tennis game improved dramatically!"</p>
+        <div class="t-author"><span class="t-avatar">🇯🇵</span><strong>Kenji T.</strong><em>Tennis Trainee, Tokyo</em></div>
+        <div class="t-stars">★★★★☆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SPORTS HUB ==================== -->
+<section class="section" id="section-hub">
+  <div class="page-header">
+    <h2 class="page-title">SPORTS <span class="accent">HUB</span></h2>
+    <p class="page-sub">12 disciplines. Expert coaching. Every level welcome.</p>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all" onclick="filterSports('all',this)">All Sports</button>
+    <button class="filter-btn" data-filter="combat" onclick="filterSports('combat',this)">Combat</button>
+    <button class="filter-btn" data-filter="team" onclick="filterSports('team',this)">Team</button>
+    <button class="filter-btn" data-filter="individual" onclick="filterSports('individual',this)">Individual</button>
+    <button class="filter-btn" data-filter="water" onclick="filterSports('water',this)">Water</button>
+  </div>
+  <div class="sports-hub-grid" id="sportsHubGrid"></div>
+
+  <!-- Global Sports Insights -->
+  <div class="section-block" style="padding-top:0">
+    <div class="section-header">
+      <h2 class="section-title">GLOBAL <span class="accent">INSIGHTS</span></h2>
+      <p class="section-sub">Leading countries and top trends for each sport worldwide</p>
+    </div>
+    <div class="insights-grid" id="insightsGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== COACHES ==================== -->
+<section class="section" id="section-coaches">
+  <div class="page-header">
+    <h2 class="page-title">WORLD-CLASS <span class="accent">COACHES</span></h2>
+    <p class="page-sub">Elite professionals from across the globe ready to train you</p>
+  </div>
+  <div class="coach-filter-bar">
+    <input type="text" class="coach-search" id="coachSearch" placeholder="🔍 Search by name, sport, or country…" oninput="filterCoaches()" />
+  </div>
+  <div class="coaches-grid" id="coachesGrid"></div>
+</section>
+
+<!-- ==================== AWARDS & ACHIEVEMENTS ==================== -->
+<section class="section" id="section-awards">
+  <div class="page-header">
+    <h2 class="page-title">AWARDS &amp; <span class="accent">ACHIEVEMENTS</span></h2>
+    <p class="page-sub">Celebrating milestones and athlete accomplishments</p>
+  </div>
+
+  <!-- Performance Tracker -->
+  <div class="section-block" style="padding-bottom:0">
+    <div class="section-header">
+      <h2 class="section-title">PERFORMANCE <span class="accent">TRACKER</span></h2>
+      <p class="section-sub">Athlete progress, attendance, and performance ratings</p>
+    </div>
+    <div class="perf-table-wrap">
+      <table class="perf-table" id="perfTable">
+        <thead><tr>
+          <th>Athlete</th><th>Sport</th><th>Coach</th><th>Sessions</th><th>Attendance</th><th>Performance</th>
+        </tr></thead>
+        <tbody id="perfTbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-block" style="padding-top:24px">
+    <div class="section-header">
+      <h2 class="section-title">ACHIEVEMENT <span class="accent">GALLERY</span></h2>
+      <p class="section-sub">Recognized milestones from our athlete community</p>
+    </div>
+    <div class="awards-grid" id="awardsGrid"></div>
+  </div>
+</section>
+
+<!-- ==================== ADMIN PANEL ==================== -->
+<section class="section" id="section-admin">
+  <div class="page-header">
+    <h2 class="page-title">ADMIN <span class="accent">PANEL</span></h2>
+    <p class="page-sub">Manage athletes, schedules, coaches and reports</p>
+  </div>
+
+  <!-- Admin Auth Gate -->
+  <div id="adminGate" style="max-width:360px;margin:32px auto;padding:0 20px">
+    <div class="form-group" style="margin-bottom:10px">
+      <label>Admin Password</label>
+      <input type="password" class="form-input" id="adminPassInput" placeholder="Enter admin password" />
+    </div>
+    <button class="btn-primary full-btn" onclick="checkAdminPass()">Access Admin Panel</button>
+    <p class="auth-hint">Demo password: <strong>admin123</strong></p>
+  </div>
+
+  <div id="adminDashboard" style="display:none">
+    <div class="admin-tabs">
+      <button class="a-tab active" onclick="switchAdminTab('athletes',this)">Athletes</button>
+      <button class="a-tab" onclick="switchAdminTab('schedules',this)">Schedules</button>
+      <button class="a-tab" onclick="switchAdminTab('coachAssign',this)">Assign Coaches</button>
+      <button class="a-tab" onclick="switchAdminTab('payments',this)">Payments</button>
+      <button class="a-tab" onclick="switchAdminTab('reports',this)">Reports</button>
+    </div>
+
+    <!-- ATHLETES TAB -->
+    <div class="atab-content active" id="atab-athletes">
+      <div class="admin-form-grid" style="margin-bottom:20px;background:var(--white);padding:16px;border-radius:var(--radius);box-shadow:var(--shadow)">
+        <h3 style="font-family:var(--font-condensed);font-weight:700;font-size:.95rem;letter-spacing:2px;text-transform:uppercase;color:var(--dark);margin-bottom:8px">➕ Add Athlete Record</h3>
+        <div class="card-row">
+          <div class="form-group half"><label>Full Name</label><input type="text" class="form-input" id="ath-name" placeholder="Athlete name" /></div>
+          <div class="form-group half"><label>Sport</label>
+            <select class="form-input" id="ath-sport">
+              <option value="">Select sport</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-row">
+          <div class="form-group half"><label>Email</label><input type="email" class="form-input" id="ath-email" placeholder="email@domain.com" /></div>
+          <div class="form-group half"><label>Country</label><input type="text" class="form-input" id="ath-country" placeholder="Country" /></div>
+        </div>
+        <div class="form-error" id="ath-error"></div>
+        <button class="btn-primary" style="margin-top:4px" onclick="addAthlete()">Add Athlete</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>#</th><th>Name</th><th>Sport</th><th>Email</th><th>Country</th><th>Actions</th></tr></thead>
+          <tbody id="athletes-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SCHEDULES TAB -->
+    <div class="atab-content" id="atab-schedules">
+      <div style="background:var(--white);padding:16px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px">
+        <h3 style="font-family:var(--font-condensed);font-weight:700;font-size:.95rem;letter-spacing:2px;text-transform:uppercase;color:var(--dark);margin-bottom:12px">➕ Create Training Schedule</h3>
+        <div class="card-row">
+          <div class="form-group half"><label>Title</label><input type="text" class="form-input" id="sched-title" placeholder="e.g. Boxing Bootcamp" /></div>
+          <div class="form-group half"><label>Sport</label>
+            <select class="form-input" id="sched-sport"><option value="">Select</option></select>
+          </div>
+        </div>
+        <div class="card-row">
+          <div class="form-group half"><label>Date</label><input type="date" class="form-input" id="sched-date" /></div>
+          <div class="form-group half"><label>Time</label>
+            <select class="form-input" id="sched-time">
+              <option>06:00 AM</option><option>08:00 AM</option><option>10:00 AM</option>
+              <option>12:00 PM</option><option>02:00 PM</option><option>04:00 PM</option>
+              <option>06:00 PM</option><option>08:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Location</label><input type="text" class="form-input" id="sched-loc" placeholder="e.g. Main Gymnasium, Court A" /></div>
+        <button class="btn-primary" style="margin-top:8px" onclick="addSchedule()">Create Schedule</button>
+      </div>
+      <h3 class="dash-section-title">Upcoming Schedules</h3>
+      <div id="schedulesList"></div>
+    </div>
+
+    <!-- COACH ASSIGN TAB -->
+    <div class="atab-content" id="atab-coachAssign">
+      <div style="background:var(--white);padding:16px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:20px">
+        <h3 style="font-family:var(--font-condensed);font-weight:700;font-size:.95rem;letter-spacing:2px;text-transform:uppercase;color:var(--dark);margin-bottom:12px">Assign Coach to Athlete</h3>
+        <div class="card-row">
+          <div class="form-group half"><label>Athlete</label>
+            <select class="form-input" id="assign-athlete"><option value="">Select athlete</option></select>
+          </div>
+          <div class="form-group half"><label>Coach</label>
+            <select class="form-input" id="assign-coach"><option value="">Select coach</option></select>
+          </div>
+        </div>
+        <button class="btn-primary" style="margin-top:8px" onclick="assignCoach()">Assign</button>
+      </div>
+      <h3 class="dash-section-title">Current Assignments</h3>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Athlete</th><th>Sport</th><th>Assigned Coach</th><th>Country</th></tr></thead>
+          <tbody id="assignments-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAYMENTS TAB -->
+    <div class="atab-content" id="atab-payments">
+      <h3 class="dash-section-title">All Payment Records</h3>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Receipt #</th><th>Athlete</th><th>Sport</th><th>Package</th><th>Amount</th><th>Card</th><th>Date</th></tr></thead>
+          <tbody id="admin-payments-tbody"></tbody>
+        </table>
+      </div>
+      <div style="margin-top:20px" id="adminPaySummary"></div>
+    </div>
+
+    <!-- REPORTS TAB -->
+    <div class="atab-content" id="atab-reports">
+      <div id="reportsContainer"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MY PORTAL ==================== -->
+<section class="section" id="section-portal">
+  <!-- Auth View -->
+  <div id="portalAuth">
+    <div class="portal-auth-wrap">
+      <div class="section-header" style="text-align:center;margin-bottom:20px">
+        <h2 class="section-title">MY <span class="accent">PORTAL</span></h2>
+        <p class="section-sub">Sign in to manage your training journey</p>
+      </div>
+      <div class="auth-tabs-row">
+        <button class="auth-tab active" onclick="switchAuthTab('login')">Sign In</button>
+        <button class="auth-tab" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <div class="form-group"><label>Email Address</label><input type="email" id="loginEmail" class="form-input" placeholder="you@email.com" /></div>
+        <div class="form-group"><label>Password</label><input type="password" id="loginPass" class="form-input" placeholder="Your password" /></div>
+        <div class="form-error" id="loginError"></div>
+        <button class="btn-primary full-btn" onclick="handleLogin()">Sign In</button>
+        <p class="auth-hint">Demo: <strong>athlete@trij.com</strong> / <strong>train123</strong></p>
+      </div>
+
+      <!-- REGISTER -->
+      <div id="registerForm" style="display:none">
+        <div class="form-group"><label>Full Name</label><input type="text" id="regName" class="form-input" placeholder="Your Full Name" /></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" class="form-input" placeholder="you@email.com" /></div>
+        <div class="form-group"><label>Password</label><input type="password" id="regPass" class="form-input" placeholder="Create password" /></div>
+        <div class="form-group"><label>Country</label>
+          <select id="regCountry" class="form-input">
+            <option value="">Select Country</option>
+            <option>Philippines</option><option>United States</option><option>Brazil</option>
+            <option>Japan</option><option>Australia</option><option>Germany</option>
+            <option>Mexico</option><option>South Korea</option><option>France</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-error" id="regError"></div>
+        <button class="btn-primary full-btn" onclick="handleRegister()">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard View -->
+  <div id="portalDashboard" style="display:none">
+    <div class="portal-header">
+      <div>
+        <h2 class="portal-welcome" id="portalWelcome">Welcome back!</h2>
+        <p class="portal-email" id="portalEmail"></p>
+      </div>
+      <button class="btn-ghost small-btn" onclick="handleLogout()">Sign Out</button>
+    </div>
+
+    <div class="portal-tabs">
+      <button class="p-tab active" onclick="switchPortalTab('overview')">Overview</button>
+      <button class="p-tab" onclick="switchPortalTab('book')">Book Session</button>
+      <button class="p-tab" onclick="switchPortalTab('payment')">Payment</button>
+      <button class="p-tab" onclick="switchPortalTab('receipts')">Receipts</button>
+      <button class="p-tab" onclick="switchPortalTab('profile')">Profile</button>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="ptab-content active" id="ptab-overview">
+      <div class="dash-stats-row">
+        <div class="dash-stat"><span class="ds-icon">🏅</span><span class="ds-num" id="sessionsCount">0</span><span class="ds-label">Sessions</span></div>
+        <div class="dash-stat"><span class="ds-icon">💰</span><span class="ds-num" id="totalSpent">$0</span><span class="ds-label">Spent</span></div>
+        <div class="dash-stat"><span class="ds-icon">🔥</span><span class="ds-num" id="streakDays">0</span><span class="ds-label">Day Streak</span></div>
+      </div>
+      <div class="upcoming-sessions">
+        <h3 class="dash-section-title">Upcoming Sessions</h3>
+        <div id="upcomingList"></div>
+      </div>
+      <div class="quick-actions">
+        <h3 class="dash-section-title">Quick Actions</h3>
+        <div class="qa-grid">
+          <button class="qa-btn" onclick="switchPortalTab('book')">📅 Book Session</button>
+          <button class="qa-btn" onclick="switchPortalTab('receipts')">🧾 View Receipts</button>
+          <button class="qa-btn" onclick="navigateTo('coaches')">👤 Find Coach</button>
+          <button class="qa-btn" onclick="navigateTo('hub')">🏟️ Sports Hub</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOK SESSION -->
+    <div class="ptab-content" id="ptab-book">
+      <h3 class="dash-section-title">Book a Training Session</h3>
+      <div class="booking-form">
+        <div class="form-group"><label>Select Sport</label><select class="form-input" id="bookSport" onchange="updateCoachList()"></select></div>
+        <div class="form-group"><label>Select Coach</label><select class="form-input" id="bookCoach" onchange="updateBookingSummary()"></select></div>
+        <div class="form-group"><label>Session Date</label><input type="date" class="form-input" id="bookDate" onchange="updateBookingSummary()" /></div>
+        <div class="form-group"><label>Session Time</label>
+          <select class="form-input" id="bookTime" onchange="updateBookingSummary()">
+            <option>06:00 AM</option><option>08:00 AM</option><option>10:00 AM</option>
+            <option>12:00 PM</option><option>02:00 PM</option><option>04:00 PM</option>
+            <option>06:00 PM</option><option>08:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Package</label><div class="package-options" id="packageOptions"></div></div>
+        <div class="booking-summary" id="bookingSummary" style="display:none"></div>
+        <button class="btn-primary full-btn" onclick="proceedToPayment()">Proceed to Payment →</button>
+      </div>
+    </div>
+
+    <!-- PAYMENT -->
+    <div class="ptab-content" id="ptab-payment">
+      <h3 class="dash-section-title">Secure Payment</h3>
+      <div class="payment-summary-card" id="paymentSummaryCard">
+        <p class="pay-hint">No booking selected. Go to <strong>Book Session</strong> first.</p>
+      </div>
+      <div id="paymentForm" style="display:none">
+        <div class="form-group"><label>Cardholder Name</label><input type="text" class="form-input" id="cardName" placeholder="Name on card" /></div>
+        <div class="form-group"><label>Card Number</label><input type="text" class="form-input" id="cardNum" placeholder="•••• •••• •••• ••••" maxlength="19" oninput="formatCard(this)" /></div>
+        <div class="card-row">
+          <div class="form-group half"><label>Expiry</label><input type="text" class="form-input" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)" /></div>
+          <div class="form-group half"><label>CVV</label><input type="text" class="form-input" id="cardCvv" placeholder="•••" maxlength="3" /></div>
+        </div>
+        <div class="payment-methods">
+          <span class="pm-badge">💳 Visa</span>
+          <span class="pm-badge">💳 Mastercard</span>
+          <span class="pm-badge">📱 GCash</span>
+          <span class="pm-badge">📱 PayMaya</span>
+        </div>
+        <div class="form-error" id="payError"></div>
+        <button class="btn-primary full-btn" onclick="processPayment()">🔒 Pay Now</button>
+      </div>
+      <div class="payment-success" id="paymentSuccess" style="display:none">
+        <div class="success-icon">✅</div>
+        <h3>Payment Successful!</h3>
+        <p id="successMsg"></p>
+        <button class="btn-primary" onclick="switchPortalTab('receipts')">View Receipt →</button>
+      </div>
+    </div>
+
+    <!-- RECEIPTS -->
+    <div class="ptab-content" id="ptab-receipts">
+      <h3 class="dash-section-title">Payment Receipts</h3>
+      <div id="receiptsList"></div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="ptab-content" id="ptab-profile">
+      <h3 class="dash-section-title">My Profile</h3>
+      <div id="profileContent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORT/COACH MODAL -->
+<div class="modal-overlay" id="sportModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('sportModal')">✕</button>
+    <div class="modal-content" id="sportModalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+  <div class="footer-brand">⚡ Tri J Sports Training Academy</div>
+  <p class="footer-copy">© 2025 Tri J. Built for champions worldwide.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
