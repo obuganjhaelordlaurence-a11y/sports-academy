@@ -1,7 +1,5 @@
 /* =========================================================
    Tri J Sports Training Hub — app.js  (Backend-Connected)
-   Updated: Uses Express + SQLite backend API
-   Replace your old app.js with this file.
    ========================================================= */
 
 'use strict';
