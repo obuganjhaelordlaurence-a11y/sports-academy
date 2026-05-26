@@ -329,7 +329,6 @@ app.get('/api/stats', authenticate, async (req, res) => {
    before the last line (module.exports = app)
 ───────────────────────────────────────────── */
 
-const ADMIN_EMAIL = 'admin@trij.com'; // must match frontend ADMIN_EMAIL
 
 function requireAdmin(req, res, next) {
   const email = req.headers['x-admin-email'] || (req.body && req.body.admin_email);
