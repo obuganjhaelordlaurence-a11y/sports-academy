@@ -455,6 +455,62 @@
     </div>
   </section>
 
+  <!-- ADMIN DASHBOARD (shown when admin logs in) -->
+  <div id="adminDashboard" style="display:none">
+    <div class="portal-header">
+      <div>
+        <h2 class="portal-welcome" id="adminWelcome">Admin Panel</h2>
+        <p class="portal-email" id="adminEmail"></p>
+      </div>
+      <button class="btn-ghost small-btn" onclick="handleLogout()">Sign Out</button>
+    </div>
+
+    <div class="dash-stats-row">
+      <div class="dash-stat">
+        <span class="ds-icon">👥</span>
+        <span class="ds-num" id="adminUserCount">0</span>
+        <span class="ds-label">Total Users</span>
+      </div>
+      <div class="dash-stat">
+        <span class="ds-icon">📅</span>
+        <span class="ds-num" id="adminBookingCount">0</span>
+        <span class="ds-label">Total Bookings</span>
+      </div>
+      <div class="dash-stat">
+        <span class="ds-icon">💰</span>
+        <span class="ds-num" id="adminRevenue">$0</span>
+        <span class="ds-label">Total Revenue</span>
+      </div>
+    </div>
+
+    <div class="portal-tabs">
+      <button class="admin-tab active" data-atab="users" onclick="switchAdminTab('users')">👥 Users</button>
+      <button class="admin-tab" data-atab="bookings" onclick="switchAdminTab('bookings')">📅 Bookings</button>
+      <button class="admin-tab" data-atab="receipts" onclick="switchAdminTab('receipts')">💳 Payments</button>
+    </div>
+
+    <div class="atab-content active" id="atab-users">
+      <div style="padding:14px 16px 0">
+        <h3 class="dash-section-title">Registered Users</h3>
+        <div id="adminUsersList"></div>
+      </div>
+    </div>
+
+    <div class="atab-content" id="atab-bookings">
+      <div style="padding:14px 16px 0">
+        <h3 class="dash-section-title">All Bookings</h3>
+        <div id="adminBookingsList"></div>
+      </div>
+    </div>
+
+    <div class="atab-content" id="atab-receipts">
+      <div style="padding:14px 16px 0">
+        <h3 class="dash-section-title">All Payments</h3>
+        <div id="adminReceiptsList"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div class="toast" id="toast"></div>
 
