@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Tri J Sports Training Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-logo">⚡</span>
+      <span class="brand-name">Tri J</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" class="nav-link active" data-section="home">Home</a>
+      <a href="#" class="nav-link" data-section="hub">Sports Hub</a>
+      <a href="#" class="nav-link" data-section="coaches">Coaches</a>
+      <a href="#" class="nav-link" data-section="portal">My Portal</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <span class="brand-name">Tri J</span>
+      <button class="drawer-close" id="drawerClose">✕</button>
+    </div>
+    <a href="#" class="drawer-link active" data-section="home">🏠 Home</a>
+    <a href="#" class="drawer-link" data-section="hub">🏟️ Sports Hub</a>
+    <a href="#" class="drawer-link" data-section="coaches">👤 Coaches</a>
+    <a href="#" class="drawer-link" data-section="portal">🔐 My Portal</a>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ==================== HOME SECTION ==================== -->
+  <section class="section active" id="section-home">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-bg-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">WORLD-CLASS TRAINING</div>
+        <h1 class="hero-title">TRAIN LIKE<br/><span class="hero-accent">A CHAMPION</span></h1>
+        <p class="hero-sub">Elite coaches. 12 sports. Real results. Join thousands of athletes training smarter worldwide.</p>
+        <div class="hero-cta-group">
+          <button class="btn-primary" onclick="navigateTo('hub')">Explore Sports</button>
+          <button class="btn-ghost" onclick="navigateTo('coaches')">Meet Coaches</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Athletes</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">48</span><span class="stat-label">Countries</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">12</span><span class="stat-label">Sports</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hex-grid">
+          <div class="hex" style="--d:0s">🥊</div>
+          <div class="hex" style="--d:.1s">⚽</div>
+          <div class="hex" style="--d:.2s">🏊</div>
+          <div class="hex" style="--d:.3s">🏋️</div>
+          <div class="hex" style="--d:.4s">🎾</div>
+          <div class="hex" style="--d:.5s">🏀</div>
+          <div class="hex" style="--d:.6s">🤸</div>
+          <div class="hex" style="--d:.7s">🏹</div>
+          <div class="hex" style="--d:.8s">🏊‍♀️</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES STRIP -->
+    <div class="features-strip">
+      <div class="feature-item">
+        <span class="fi-icon">🌍</span>
+        <div>
+          <strong>Global Coaches</strong>
+          <p>Professionals from 48+ countries</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">📅</span>
+        <div>
+          <strong>Flexible Schedule</strong>
+          <p>Train at your own pace</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">🏆</span>
+        <div>
+          <strong>Proven Results</strong>
+          <p>94% athlete satisfaction rate</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">💳</span>
+        <div>
+          <strong>Secure Payments</strong>
+          <p>Easy checkout & receipts</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPORTS PREVIEW CARDS -->
+    <div class="section-block">
+      <div class="section-header">
+        <h2 class="section-title">POPULAR <span class="accent">SPORTS</span></h2>
+        <p class="section-sub">Choose your discipline and start training today</p>
+      </div>
+      <div class="sports-grid" id="homesSportsGrid"></div>
+      <div class="center-btn">
+        <button class="btn-primary" onclick="navigateTo('hub')">View All Sports →</button>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testimonials-block">
+      <div class="section-header">
+        <h2 class="section-title">ATHLETE <span class="accent">STORIES</span></h2>
+      </div>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <p>"Tri J transformed my boxing skills in just 8 weeks. My coach from Mexico City was incredible — technical, patient, and deeply motivating."</p>
+          <div class="t-author"><span class="t-avatar">🇵🇭</span><strong>Marco R.</strong> <em>Boxing Trainee, Manila</em></div>
+          <div class="t-stars">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"I signed up for swimming and got matched with an Olympic-level coach from Australia. The online sessions were structured and world-class."</p>
+          <div class="t-author"><span class="t-avatar">🇧🇷</span><strong>Camila S.</strong> <em>Swimming Trainee, São Paulo</em></div>
+          <div class="t-stars">★★★★★</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"The portal made everything so easy — booking, payment, receipts all in one place. My tennis game improved by leaps and bounds!"</p>
+          <div class="t-author"><span class="t-avatar">🇯🇵</span><strong>Kenji T.</strong> <em>Tennis Trainee, Tokyo</em></div>
+          <div class="t-stars">★★★★☆</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== SPORTS HUB SECTION ==================== -->
+  <section class="section" id="section-hub">
+    <div class="page-header">
+      <h2 class="page-title">SPORTS <span class="accent">HUB</span></h2>
+      <p class="page-sub">12 disciplines. Expert coaching. Every level welcome.</p>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Sports</button>
+      <button class="filter-btn" data-filter="combat">Combat</button>
+      <button class="filter-btn" data-filter="team">Team</button>
+      <button class="filter-btn" data-filter="individual">Individual</button>
+      <button class="filter-btn" data-filter="water">Water</button>
+    </div>
+
+    <div class="sports-hub-grid" id="sportsHubGrid"></div>
+  </section>
+
+  <!-- SPORT DETAIL MODAL -->
+  <div class="modal-overlay" id="sportModal">
+    <div class="modal-box">
+      <button class="modal-close" id="sportModalClose">✕</button>
+      <div class="modal-content" id="sportModalContent"></div>
+    </div>
+  </div>
+
+  <!-- ==================== COACHES SECTION ==================== -->
+  <section class="section" id="section-coaches">
+    <div class="page-header">
+      <h2 class="page-title">WORLD-CLASS <span class="accent">COACHES</span></h2>
+      <p class="page-sub">Elite professionals from across the globe ready to train you</p>
+    </div>
+
+    <div class="coach-filter-bar">
+      <input type="text" class="coach-search" id="coachSearch" placeholder="🔍 Search by name or sport…" />
+    </div>
+
+    <div class="coaches-grid" id="coachesGrid"></div>
+  </section>
+
+  <!-- COACH BOOKING MODAL -->
+  <div class="modal-overlay" id="coachModal">
+    <div class="modal-box">
+      <button class="modal-close" id="coachModalClose">✕</button>
+      <div class="modal-content" id="coachModalContent"></div>
+    </div>
+  </div>
+
+  <!-- ==================== PORTAL SECTION ==================== -->
+  <section class="section" id="section-portal">
+
+    <!-- LOGIN / REGISTER VIEW -->
+    <div id="portalAuth">
+      <div class="page-header">
+        <h2 class="page-title">ATHLETE <span class="accent">PORTAL</span></h2>
+        <p class="page-sub">Sign in to manage your training sessions and payments</p>
+      </div>
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign In</button>
+          <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div id="loginForm">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" class="form-input" placeholder="you@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" />
+          </div>
+          <div class="form-error" id="loginError"></div>
+          <button class="btn-primary full-btn" onclick="handleLogin()">Sign In</button>
+          <p class="auth-hint">Demo: <strong>athlete@trij.com</strong> / <strong>train123</strong></p>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div id="registerForm" style="display:none">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="regName" class="form-input" placeholder="Your Full Name" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="you@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="regPass" class="form-input" placeholder="Create password" />
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <select id="regCountry" class="form-input">
+              <option value="">Select Country</option>
+              <option>Philippines</option><option>United States</option><option>Brazil</option>
+              <option>Japan</option><option>Australia</option><option>Germany</option>
+              <option>Mexico</option><option>South Korea</option><option>France</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-error" id="regError"></div>
+          <button class="btn-primary full-btn" onclick="handleRegister()">Create Account</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTAL DASHBOARD VIEW (shown after login) -->
+    <div id="portalDashboard" style="display:none">
+      <div class="portal-header">
+        <div>
+          <h2 class="portal-welcome" id="portalWelcome">Welcome back!</h2>
+          <p class="portal-email" id="portalEmail"></p>
+        </div>
+        <button class="btn-ghost small-btn" onclick="handleLogout()">Sign Out</button>
+      </div>
+
+      <!-- PORTAL TABS -->
+      <div class="portal-tabs">
+        <button class="p-tab active" data-ptab="overview" onclick="switchPortalTab('overview')">Overview</button>
+        <button class="p-tab" data-ptab="book" onclick="switchPortalTab('book')">Book Session</button>
+        <button class="p-tab" data-ptab="receipts" onclick="switchPortalTab('receipts')">Receipts</button>
+        <button class="p-tab" data-ptab="payment" onclick="switchPortalTab('payment')">Payment</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="ptab-content active" id="ptab-overview">
+        <div class="dash-stats-row">
+          <div class="dash-stat">
+            <span class="ds-icon">🏅</span>
+            <span class="ds-num" id="sessionsCount">0</span>
+            <span class="ds-label">Sessions Booked</span>
+          </div>
+          <div class="dash-stat">
+            <span class="ds-icon">💰</span>
+            <span class="ds-num" id="totalSpent">$0</span>
+            <span class="ds-label">Total Spent</span>
+          </div>
+          <div class="dash-stat">
+            <span class="ds-icon">🔥</span>
+            <span class="ds-num" id="streakDays">0</span>
+            <span class="ds-label">Day Streak</span>
+          </div>
+        </div>
+
+        <div class="upcoming-sessions" id="upcomingSessions">
+          <h3 class="dash-section-title">Upcoming Sessions</h3>
+          <div id="upcomingList"></div>
+        </div>
+
+        <div class="quick-actions">
+          <h3 class="dash-section-title">Quick Actions</h3>
+          <div class="qa-grid">
+            <button class="qa-btn" onclick="switchPortalTab('book')">📅 Book Session</button>
+            <button class="qa-btn" onclick="switchPortalTab('receipts')">🧾 View Receipts</button>
+            <button class="qa-btn" onclick="navigateTo('coaches')">👤 Find Coach</button>
+            <button class="qa-btn" onclick="navigateTo('hub')">🏟️ Sports Hub</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOK SESSION -->
+      <div class="ptab-content" id="ptab-book">
+        <h3 class="dash-section-title">Book a Training Session</h3>
+        <div class="booking-form">
+          <div class="form-group">
+            <label>Select Sport</label>
+            <select class="form-input" id="bookSport"></select>
+          </div>
+          <div class="form-group">
+            <label>Select Coach</label>
+            <select class="form-input" id="bookCoach"></select>
+          </div>
+          <div class="form-group">
+            <label>Session Date</label>
+            <input type="date" class="form-input" id="bookDate" />
+          </div>
+          <div class="form-group">
+            <label>Session Time</label>
+            <select class="form-input" id="bookTime">
+              <option>06:00 AM</option><option>08:00 AM</option><option>10:00 AM</option>
+              <option>12:00 PM</option><option>02:00 PM</option><option>04:00 PM</option>
+              <option>06:00 PM</option><option>08:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Package</label>
+            <div class="package-options" id="packageOptions"></div>
+          </div>
+          <div class="booking-summary" id="bookingSummary"></div>
+          <button class="btn-primary full-btn" onclick="proceedToPayment()">Proceed to Payment →</button>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="ptab-content" id="ptab-payment">
+        <h3 class="dash-section-title">Payment</h3>
+        <div class="payment-summary-card" id="paymentSummaryCard">
+          <p class="pay-hint">No booking selected. Go to <strong>Book Session</strong> first.</p>
+        </div>
+        <div class="payment-form" id="paymentForm" style="display:none">
+
+          <!-- PAYMENT METHOD SELECTOR -->
+          <div class="form-group">
+            <label>Select Payment Method</label>
+            <div class="payment-methods-select">
+              <button type="button" class="pm-option selected" data-method="visa" onclick="selectPaymentMethod('visa')">
+                <span class="pm-icon">💳</span>
+                <span class="pm-label">Visa</span>
+              </button>
+              <button type="button" class="pm-option" data-method="mastercard" onclick="selectPaymentMethod('mastercard')">
+                <span class="pm-icon">💳</span>
+                <span class="pm-label">Mastercard</span>
+              </button>
+              <button type="button" class="pm-option" data-method="gcash" onclick="selectPaymentMethod('gcash')">
+                <span class="pm-icon">📱</span>
+                <span class="pm-label">GCash</span>
+              </button>
+              <button type="button" class="pm-option" data-method="paymaya" onclick="selectPaymentMethod('paymaya')">
+                <span class="pm-icon">📱</span>
+                <span class="pm-label">PayMaya</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD FORM (Visa / Mastercard) -->
+          <div id="cardFields">
+            <div class="form-group">
+              <label>Cardholder Name</label>
+              <input type="text" class="form-input" id="cardName" placeholder="Name on card" />
+            </div>
+            <div class="form-group">
+              <label>Card Number</label>
+              <input type="text" class="form-input" id="cardNum" placeholder="•••• •••• •••• ••••" maxlength="19" oninput="formatCard(this)" />
+            </div>
+            <div class="card-row">
+              <div class="form-group half">
+                <label>Expiry</label>
+                <input type="text" class="form-input" id="cardExp" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)" />
+              </div>
+              <div class="form-group half">
+                <label>CVV</label>
+                <input type="text" class="form-input" id="cardCvv" placeholder="•••" maxlength="3" />
+              </div>
+            </div>
+          </div>
+
+          <!-- GCASH FORM -->
+          <div id="gcashFields" style="display:none">
+            <div class="ewallet-info-box">
+              <div class="ewallet-logo">💚 GCash</div>
+              <p class="ewallet-instruction">Send your payment to the GCash number below, then enter your reference number to confirm.</p>
+              <div class="ewallet-number">📱 0917-123-4567</div>
+              <div class="ewallet-name">Account Name: Tri J Sports Hub</div>
+            </div>
+            <div class="form-group">
+              <label>Your GCash Number</label>
+              <input type="text" class="form-input" id="gcashPhone" placeholder="09XX XXX XXXX" maxlength="13" oninput="formatPhone(this)" />
+            </div>
+            <div class="form-group">
+              <label>GCash Reference Number</label>
+              <input type="text" class="form-input" id="gcashRef" placeholder="e.g. 1234567890" maxlength="13" />
+            </div>
+          </div>
+
+          <!-- PAYMAYA FORM -->
+          <div id="paymayaFields" style="display:none">
+            <div class="ewallet-info-box ewallet-maya">
+              <div class="ewallet-logo">💙 PayMaya</div>
+              <p class="ewallet-instruction">Send your payment to the PayMaya number below, then enter your reference number to confirm.</p>
+              <div class="ewallet-number">📱 0918-987-6543</div>
+              <div class="ewallet-name">Account Name: Tri J Sports Hub</div>
+            </div>
+            <div class="form-group">
+              <label>Your PayMaya Number</label>
+              <input type="text" class="form-input" id="paymayaPhone" placeholder="09XX XXX XXXX" maxlength="13" oninput="formatPhone(this)" />
+            </div>
+            <div class="form-group">
+              <label>PayMaya Reference Number</label>
+              <input type="text" class="form-input" id="paymayaRef" placeholder="e.g. PM-1234567890" maxlength="16" />
+            </div>
+          </div>
+
+          <div class="form-error" id="payError"></div>
+          <button class="btn-primary full-btn" onclick="processPayment()">Pay Now 🔒</button>
+        </div>
+        <!-- SUCCESS STATE -->
+        <div class="payment-success" id="paymentSuccess" style="display:none">
+          <div class="success-icon">✅</div>
+          <h3>Payment Successful!</h3>
+          <p id="successMsg"></p>
+          <button class="btn-primary" onclick="switchPortalTab('receipts')">View Receipt →</button>
+        </div>
+      </div>
+
+      <!-- RECEIPTS -->
+      <div class="ptab-content" id="ptab-receipts">
+        <h3 class="dash-section-title">Payment Receipts</h3>
+        <div id="receiptsList"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    <div class="footer-brand">⚡ Tri J Sports Training Hub</div>
+    <p class="footer-copy">© 2025 Tri J. Built for champions worldwide.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Support</a>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
